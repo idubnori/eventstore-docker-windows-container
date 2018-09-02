@@ -1,5 +1,7 @@
-Event Store on Docker Windows Container
+[Event Store](https://github.com/EventStore/EventStore) on Docker Windows Container
 ===
+[![GitHub license](https://img.shields.io/github/license/idubnori/shairport-sync-trackinfo-reader.svg)](https://github.com/idubnori/eventstore-docker-windows-container/blob/master/LICENSE)
+[![Build status](https://ci.appveyor.com/api/projects/status/y6tsxs02q2x6yo13?svg=true)](https://ci.appveyor.com/project/idubnori/eventstore-docker-windows-container)
 
 ## Getting Started
 
@@ -14,4 +16,4 @@ docker pull idubnori/eventstore:4.1.1-hotfix1-windowsservercore
 ## License
  [MIT License](./LICENSE)
 #### Dependencies
- [Event Store](https://github.com/EventStore/EventStore/blob/master/LICENSE.md)
+ [Event Store License](https://github.com/EventStore/EventStore/blob/master/LICENSE.md)
