@@ -32,7 +32,7 @@ test_script:
       curl "http://${hostip}:2113" -s -f --connect-timeout 30
       Test-NetConnection -Port 1113 -ComputerName ${hostip} -InformationLevel "Detailed"
 
-deploy_script:
-  - ps: |
-      echo $env:DOCKER_PASS | docker login -u $env:DOCKER_USER --password-stdin
-      docker push $env:DOCKER_IMAGE_NAME
+# deploy_script:
+#   - ps: |
+#       echo $env:DOCKER_PASS | docker login -u $env:DOCKER_USER --password-stdin
+#       docker push $env:DOCKER_IMAGE_NAME
