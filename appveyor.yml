@@ -17,12 +17,12 @@ init:
       cinst curl -y --no-progress
       sal curl (Join-Path $env:ChocolateyInstall "bin\curl.exe") -O AllScope
 
-build_script:
-  - ps: |
-      cd $env:APPVEYOR_BUILD_FOLDER
-      cd .\windowsservercore
-      docker build -t $env:DOCKER_IMAGE_NAME .
-      docker images
+# build_script:
+#   - ps: |
+#       cd $env:APPVEYOR_BUILD_FOLDER
+#       cd .\windowsservercore
+#       docker build -t $env:DOCKER_IMAGE_NAME .
+#       docker images
 
 test_script:
   - ps: |
