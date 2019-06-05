@@ -27,8 +27,10 @@ build_script:
 test_script:
   - ps: Switch-DockerLinux
   - ps: |
-      $cid = docker run -d $env:DOCKER_IMAGE_NAME
-      $hostip = docker inspect -f "{{ .NetworkSettings.Networks.nat.IPAddress }}" $cid
+      $cid = docker run -d -p 2113:2113 -p 1113:1113 $env:DOCKER_IMAGE_NAME
+      echo $cid
+      $hostip = docker inspect -f "{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}" $cid
+      echo $hostip
       Start-Sleep -s 15
       curl "http://${hostip}:2113" -s -f --connect-timeout 30
       Test-NetConnection -Port 1113 -ComputerName ${hostip} -InformationLevel "Detailed"
