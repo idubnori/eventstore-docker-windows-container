@@ -6,7 +6,7 @@
 ## Getting Started
 
 ```
-docker pull idubnori/eventstore:4.1.1-hotfix1-windowsservercore
+docker pull idubnori/eventstore:5.0.5-windowsservercore
 ```
 
 ## Notes
