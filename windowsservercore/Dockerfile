@@ -5,7 +5,7 @@ SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPref
 ENV ES_VERSION="5.0.5" `
     ES_HOME="C:\eventstore"
 
-RUN Invoke-WebRequest "https://eventstore.org/downloads/EventStore-OSS-Win-v$($env:ES_VERSION).zip" -OutFile 'eventstore.zip' -UseBasicParsing; `
+RUN Invoke-WebRequest "https://eventstore.org/downloads/win/EventStore-OSS-Win-v$($env:ES_VERSION).zip" -OutFile 'eventstore.zip' -UseBasicParsing; `
     Expand-Archive eventstore.zip -DestinationPath $env:ES_HOME ;
 
 # windowsservercore
