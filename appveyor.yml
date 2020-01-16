@@ -6,7 +6,7 @@ environment:
   DOCKER_USER:
     secure: LJxMxZl1dCKgMF5FlErnwQ==
   DOCKER_PASS:
-    secure: HASfuLeqW86zydzpb7/5Zg==
+    secure: 3HLvUQccL9lxwXM605vjQQ==
   DOCKER_IMAGE_NAME: idubnori/eventstore:4.1.4-windowsservercore
 
 init:
