@@ -35,4 +35,6 @@ test_script:
 deploy_script:
   - ps: |
       echo $env:DOCKER_PASS | docker login -u $env:DOCKER_USER --password-stdin
-      docker push $env:DOCKER_IMAGE_NAME
+      if ($env:APPVEYOR_PULL_REQUEST_NUMBER -eq $null -and $env:APPVEYOR_REPO_BRANCH -eq "master") {
+        docker push $env:DOCKER_IMAGE_NAME
+      }
