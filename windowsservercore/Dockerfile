@@ -2,17 +2,18 @@
 FROM microsoft/windowsservercore AS downloader
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
-ENV ES_VERSION="4.1.1-hotfix1" `
+ENV ES_VERSION="4.1.4" `
     ES_HOME="C:\eventstore"
 
-RUN Invoke-WebRequest "https://eventstore.org/downloads/EventStore-OSS-Win-v$($env:ES_VERSION).zip" -OutFile 'eventstore.zip' -UseBasicParsing; `
+RUN [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12; `
+    Invoke-WebRequest "https://eventstore.org/downloads/EventStore-OSS-Win-v$($env:ES_VERSION).zip" -OutFile 'eventstore.zip' -UseBasicParsing; `
     Expand-Archive eventstore.zip -DestinationPath $env:ES_HOME ;
 
 # windowsservercore
 FROM microsoft/windowsservercore
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop';"]
 
-ENV ES_VERSION="4.1.1-hotfix1" `
+ENV ES_VERSION="4.1.4" `
     ES_HOME="C:\eventstore"
 
 EXPOSE 1113 2113
